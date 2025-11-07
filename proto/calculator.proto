@@ -1,0 +1,24 @@
+syntax = "proto3";
+
+package calculator;
+
+// Serviço de Calculadora
+service Calculator {
+  // Operações básicas
+  rpc Add (OperationRequest) returns (OperationResponse);
+  rpc Subtract (OperationRequest) returns (OperationResponse);
+  rpc Multiply (OperationRequest) returns (OperationResponse);
+  rpc Divide (OperationRequest) returns (OperationResponse);
+}
+
+// Mensagem de requisição com dois números
+message OperationRequest {
+  double num1 = 1;
+  double num2 = 2;
+}
+
+// Mensagem de resposta com o resultado
+message OperationResponse {
+  double result = 1;
+  string message = 2;
+}
